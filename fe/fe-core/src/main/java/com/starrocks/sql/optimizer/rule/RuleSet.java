@@ -337,9 +337,19 @@ public class RuleSet {
                 new PushDownApplyAggProjectFilterRule()
         ));
 
+<<<<<<< HEAD
         REWRITE_RULES.put(RuleSetType.SUBQUERY_REWRITE_TO_WINDOW, ImmutableList.of(
                 new ScalarApply2AnalyticRule()
         ));
+=======
+    public static final Rule SUBQUERY_EXTRACT_CORRELATION_PREDICATE_RULES =
+            new CombinationRule(RuleType.GP_SUBQUERY_EXTRACT_CORRELATION_PREDICATE, ImmutableList.of(
+                    new PushDownApplyProjectRule(),
+                    new PushDownApplyFilterRule(),
+                    new PushDownApplyAggFilterRule(),
+                    new PushDownApplyAggProjectFilterRule()
+            ));
+>>>>>>> 80fda3b8a7 ([BugFix] Fix count scalar-subquery rewrite bug (#57789))
 
         REWRITE_RULES.put(RuleSetType.SUBQUERY_REWRITE_TO_JOIN, ImmutableList.of(
                 new QuantifiedApply2JoinRule(),
